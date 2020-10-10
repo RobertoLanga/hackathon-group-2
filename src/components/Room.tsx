@@ -137,7 +137,7 @@ class Index extends Component<Props, State> {
 
             {this.state.consentToJoin && (
               <div className="flex">
-                <div className="w-64 h-screen bg-gray-100">
+                <div className="w-1/4 h-screen bg-gray-100">
                   <MeetingDataDisplay />
                   <DisplayAgenda />
                 </div>

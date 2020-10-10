@@ -41,22 +41,21 @@ const CreateMeeting = props => {
   };
 
   return (
-    <div className="">
+    <div className="max-w-screen-md mx-auto mt-48">
       {showForm && (
-        <div className="flex flex-row justify-evenly">
-          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
+        <div className="flex flex-row justify-evenly p-2">
+          <div className="flex flex-col border border-black-4 rounded flex-grow p-6 m-2">
             <input
-              placeholder="Room Title"
-              className="border border-black-4 p-2 rounded"
+              placeholder="Name of meeting"
+              className="border border-black-4 p-4 rounded"
               type="text"
               name="roomName"
               onChange={e => changeState('roomName', e.target.value)}
             ></input>
             <br />
-
             <input
-              placeholder="Meeting Title"
-              className="border border-black-4 p-2 rounded"
+              placeholder="Goal of meeting"
+              className="border border-black-4 p-4 rounded"
               type="text"
               name="meetingTitle"
               onChange={e => changeState('meetingTitle', e.target.value)}
@@ -68,7 +67,7 @@ const CreateMeeting = props => {
                 onClick={() => setAgenda(!agenda)}
               >
                 {' '}
-                Add Topic
+                Add Agenda Item
               </button>
               {agenda && (
                 <>
@@ -77,44 +76,25 @@ const CreateMeeting = props => {
               )}
             </div>
           </div>
-          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
-            <div  className="self-center underline" >Agenda List</div>
-              {state.meetingAgenda && (
-
-<<<<<<< HEAD
-          <div className="flex flex-col border border-black-4 p-2 rounded">
-            <div>Agenda List</div>
+          <div className="flex flex-col border border-black-4 rounded flex-grow p-6 m-2">
+            <div className="font-sans text-lg text-gray-800 self-center underline">
+              Your Meeting Agenda
+            </div>
             {state.meetingAgenda && (
               <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
             )}
-            <button
-              style={{ width: '50%' }}
-              className="p-2 rounded text-white w-16 bg-green-600 hover:bg-green-800 self-center"
-              onClick={props.handleCreateMeeting}
-            >
-              Create Meeting
-            </button>
-=======
-                <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
-              )}
-
->>>>>>> dd31d4790caa0f56be2a315774510d1dfdd4e47a
           </div>
         </div>
       )}
-<<<<<<< HEAD
-    </div>
-=======
-      <div className="flex justify-evenly">
-          <button
-                  className="absolute top-50 right-50 p-2 rounded text-white bg-green-600 hover:bg-green-800"
-                  onClick={props.handleCreateMeeting}
-                  >
-                  Create Meeting
-          </button>
+      <div className="flex justify-evenly mt-10">
+        <button
+          className="absolute top-50 right-50 py-4 px-8 text-2xl font-medium rounded text-white bg-green-600 hover:bg-green-800"
+          onClick={props.handleCreateMeeting}
+        >
+          Create Meeting
+        </button>
       </div>
-    </Form>
->>>>>>> dd31d4790caa0f56be2a315774510d1dfdd4e47a
+    </div>
   );
 };
 

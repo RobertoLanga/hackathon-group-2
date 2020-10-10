@@ -9,10 +9,10 @@ const CountDownClock = props => {
     <div className="">
       {showTag && (
         <>
-          <div className="font-sans text-lg text-gray-800 py-2">{`${props.agenda.item} ( ${props.agenda.time} mins )`}</div>
+          <h2 className="font-sans text-lg text-gray-800 py-2">{props.agenda.item}</h2>
           <div className="flex flex-row justify-between items-center">
             <button
-              className="bg-blue-600 p-2 rounded text-white hover:bg-blue-800"
+              className="bg-transparent hover:bg-blue-800 text-blue-800 hover:text-white py-2 px-4 border border-blue-800 hover:border-transparent rounded"
               onClick={() => setDisplay(true)}
             >
               Start
@@ -23,7 +23,7 @@ const CountDownClock = props => {
                 color="#cbd5e0"
                 alpha={0.9}
                 showMilliseconds={false}
-                size={30}
+                size={50}
                 onComplete={() => setShowTag(false)}
               />
             )}

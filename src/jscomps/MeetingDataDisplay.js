@@ -12,9 +12,9 @@ const MeetingDataDisplay = () => {
 
   return (
     <div className="my-6 mx-4">
-      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Room Name: ${state.roomName}`}</h1>
-      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Meeting Title: ${state.meetingTitle}`}</h1>
-      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Meeting Time: ${totalTime}`}</h1>
+      <h1 className="font-sans text-lg text-gray-800 my-2">{`Meeting: ${state.roomName}`}</h1>
+      <h1 className="font-sans text-lg text-gray-800 my-2">{`Goal: ${state.meetingTitle}`}</h1>
+      <h1 className="font-sans text-lg text-gray-800 my-2">{`Time: ${totalTime} min`}</h1>
     </div>
   );
 };
