@@ -8,9 +8,9 @@ import RoomViewComponent from '../components/RoomViewComponent';
 
 const Form = styled.div({
   height: '30rem',
-  width: '30rem',
+  width: '90%',
   margin: '10rem auto',
-  padding: '0.5rem'
+  padding: '0.5rem',
 });
 
 const CreateMeeting = props => {
@@ -38,15 +38,11 @@ const CreateMeeting = props => {
     }
   };
 
-
-  
-
-
   return (
     <Form>
       {showForm && (
-        <div className="flex">
-          <div className="flex flex-col border border-black-4 p-2 rounded">
+        <div className="flex flex-row justify-evenly">
+          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
             <input
               placeholder ="Room Title"
               className="border border-black-4 p-2 rounded"
@@ -79,24 +75,25 @@ const CreateMeeting = props => {
               )}
             </div>
           </div>
+          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
+            <div  className="self-center underline" >Agenda List</div>
+              {state.meetingAgenda && (
 
+                <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
+              )}
 
-          <div className="flex flex-col border border-black-4 p-2 rounded">
-          <div>Agenda List</div>
-            {state.meetingAgenda && (
-              <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
-            )}
-          <button
-            style={{ width: '50%' }}
-            className="p-2 rounded text-white w-16 bg-green-600 hover:bg-green-800 self-center"
-            onClick={props.handleCreateMeeting}
-            >
-            Create Meeting
-            </button>
           </div>
 
         </div>
       )}
+      <div className="flex justify-evenly">
+          <button
+                  className="absolute top-50 right-50 p-2 rounded text-white bg-green-600 hover:bg-green-800"
+                  onClick={props.handleCreateMeeting}
+                  >
+                  Create Meeting
+          </button>
+      </div>
     </Form>
   );
 };
