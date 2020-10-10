@@ -9,9 +9,9 @@ import RoomViewComponent from '../components/RoomViewComponent';
 /*
 const Form = styled.div({
   height: '30rem',
-  width: '30rem',
+  width: '90%',
   margin: '10rem auto',
-  padding: '0.5rem'
+  padding: '0.5rem',
 });
 */
 
@@ -43,8 +43,8 @@ const CreateMeeting = props => {
   return (
     <div className="">
       {showForm && (
-        <div className="flex">
-          <div className="flex flex-col border border-black-4 p-2 rounded">
+        <div className="flex flex-row justify-evenly">
+          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
             <input
               placeholder="Room Title"
               className="border border-black-4 p-2 rounded"
@@ -77,7 +77,11 @@ const CreateMeeting = props => {
               )}
             </div>
           </div>
+          <div className="flex flex-col border border-black-4 p-2 rounded flex-grow m-4">
+            <div  className="self-center underline" >Agenda List</div>
+              {state.meetingAgenda && (
 
+<<<<<<< HEAD
           <div className="flex flex-col border border-black-4 p-2 rounded">
             <div>Agenda List</div>
             {state.meetingAgenda && (
@@ -90,10 +94,27 @@ const CreateMeeting = props => {
             >
               Create Meeting
             </button>
+=======
+                <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
+              )}
+
+>>>>>>> dd31d4790caa0f56be2a315774510d1dfdd4e47a
           </div>
         </div>
       )}
+<<<<<<< HEAD
     </div>
+=======
+      <div className="flex justify-evenly">
+          <button
+                  className="absolute top-50 right-50 p-2 rounded text-white bg-green-600 hover:bg-green-800"
+                  onClick={props.handleCreateMeeting}
+                  >
+                  Create Meeting
+          </button>
+      </div>
+    </Form>
+>>>>>>> dd31d4790caa0f56be2a315774510d1dfdd4e47a
   );
 };
 

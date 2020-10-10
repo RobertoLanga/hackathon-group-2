@@ -5,9 +5,14 @@ import IconTrash from './IconTrash';
 const ShowList = props => {
   const renderList = props.list.map((item, index) => {
     return (
-      <div key={index}>
-        {item.item} <IconTrash text={item.item} handleClickIcon={props.handleClickIcon} />
+    <>
+    <br />
+      <div key={index} className ="flex justify-between">
+       {item.item} <IconTrash text={item.item} handleClickIcon={props.handleClickIcon} />
       </div>
+      <br />
+    </>
+
     );
   });
 
