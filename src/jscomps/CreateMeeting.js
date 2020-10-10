@@ -57,20 +57,23 @@ const CreateMeeting = props => {
                     name='meetingTitle'
                     onChange ={e => changeState('meetingTitle',e.target.value)}
                     ></input>
-                    
-                    <label>Agenda</label>
-                    <button style = {{width: '50%'}} className ="ui primary button" onClick ={() => setAgenda(!agenda)}>Add Agenda</button>
+                    <br />
+                    <button style = {{width: '50%'}} className ="ui primary button" onClick ={() => setAgenda(!agenda)}> + Agenda</button>
                     {
                         agenda &&
                         <>
                             <AgendaItem handleAddAgenda = {handleAddAgenda}/>
                         </>
                     }
+                    <br />
                     <div>Agenda List</div>
                     {
                         state.meetingAgenda && <ShowList list ={state.meetingAgenda} handleClickIcon = {handleDeleteAgenda} />
                     }
+                    <br />
+                    <br />
                     <button style = {{width: '50%'}} className ="ui primary button" onClick={props.handleCreateMeeting}>Create Meeting</button>
+                    <br />
                 </div>
 
             }
