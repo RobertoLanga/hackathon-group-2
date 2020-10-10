@@ -9,7 +9,7 @@ const CountDownClock = props => {
     <div className="">
       {showTag && (
         <>
-          <h2 className="font-sans text-lg text-gray-800 py-2">{props.agenda.item}</h2>
+          <h2 className="font-sans text-lg text-gray-800 py-4">{props.agenda.item}</h2>
           <div className="flex flex-row justify-between items-center">
             <button
               className="bg-transparent hover:bg-blue-800 text-blue-800 hover:text-white py-2 px-4 border border-blue-800 hover:border-transparent rounded"

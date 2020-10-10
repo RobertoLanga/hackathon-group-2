@@ -15,6 +15,7 @@ const MeetingDataDisplay = () => {
       <h1 className="font-sans text-lg text-gray-800 my-2">{`Meeting: ${state.roomName}`}</h1>
       <h1 className="font-sans text-lg text-gray-800 my-2">{`Goal: ${state.meetingTitle}`}</h1>
       <h1 className="font-sans text-lg text-gray-800 my-2">{`Time: ${totalTime} min`}</h1>
+      <h1 className="font-sans text-lg font-medium text-gray-800 pt-6 ">Meeting Agenda:</h1>
     </div>
   );
 };
