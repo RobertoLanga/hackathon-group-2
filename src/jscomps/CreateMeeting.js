@@ -26,7 +26,7 @@ const CreateMeeting = props => {
     };
 
     const handleDeleteAgenda = text =>{
-        console.log(text)
+
         let currentAgendas = state.meetingAgenda;
         let Delindex = -1;
         currentAgendas.map((item,index) =>{

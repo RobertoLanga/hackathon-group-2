@@ -29,7 +29,7 @@ const AgendaItem = props => {
                     item.time = time;
                     await props.handleAddAgenda(item);
                     setText('');
-                    setTime(0)
+                    setTime('')
 
                 }
             }
