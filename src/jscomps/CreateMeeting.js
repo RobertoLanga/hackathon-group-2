@@ -6,12 +6,14 @@ import styled from 'styled-components';
 
 import RoomViewComponent from '../components/RoomViewComponent';
 
+/*
 const Form = styled.div({
   height: '30rem',
   width: '20rem',
   margin: '10rem auto',
   padding: '0.5rem'
 });
+*/
 
 const CreateMeeting = props => {
   const { state, changeState } = React.useContext(Context);
@@ -39,7 +41,7 @@ const CreateMeeting = props => {
   };
 
   return (
-    <Form>
+    <div className="">
       {showForm && (
         <div className="flex flex-col">
           <label>Room Name</label>
@@ -60,7 +62,7 @@ const CreateMeeting = props => {
           <button
             style={{ width: '50%' }}
             className="ui primary button"
-            onClick={() => setAgenda(!agenda)}
+            onClick={e => setAgenda(!agenda)}
           >
             {' '}
             + Agenda
@@ -87,7 +89,7 @@ const CreateMeeting = props => {
           <br />
         </div>
       )}
-    </Form>
+    </div>
   );
 };
 

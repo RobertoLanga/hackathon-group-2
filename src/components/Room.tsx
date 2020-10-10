@@ -1,5 +1,5 @@
 // @ts-nocheck
-import  DisplayAgenda from '../jscomps/DisplayAgenda';
+import DisplayAgenda from '../jscomps/DisplayAgenda';
 import MeetingDataDisplay from '../jscomps/MeetingDataDisplay';
 
 import {
@@ -22,7 +22,6 @@ import PasswordEntry from './PasswordEntry';
 import PeerGrid from './PeerGrid';
 import Sidebar from './Sidebar';
 import SoundPlayer from './SoundPlayer';
-
 
 const PasswordEntryContainer = styled.div({
   alignItems: 'center',
@@ -63,7 +62,7 @@ const MirrorState = styled.div({
   zindex: 100,
   width: '100%',
   height: '100%',
-  background: 'black',
+  background: 'black'
 });
 
 interface Props {
@@ -99,7 +98,7 @@ class Index extends Component<Props, State> {
       pttMode: false,
       sendRtt: false,
       chatOpen: false,
-      hiddenPeers: [],
+      hiddenPeers: []
     };
   }
 
@@ -117,14 +116,13 @@ class Index extends Component<Props, State> {
   }
 
   public render() {
-
-    const { Screensaver } = this.props
+    const { Screensaver } = this.props;
     return (
       <Provider configUrl={this.props.configUrl} userData={this.props.userData}>
         <RemoteAudioPlayer />
         <HiddenPeers.Provider
           value={{
-            hiddenPeers: this.state.hiddenPeers,
+            hiddenPeers: this.state.hiddenPeers
           }}
         >
           <RootContainer>
@@ -132,93 +130,93 @@ class Index extends Component<Props, State> {
               <Haircheck
                 onAccept={() => {
                   this.setState({ consentToJoin: true });
-                  this.props.callback ? this.props.callback() : () => null
+                  this.props.callback ? this.props.callback() : () => null;
                 }}
               />
             )}
 
             {this.state.consentToJoin && (
-              <div className="ui segment">
-                <div className ="ui two column very relaxed grid">
-                  <div className="column">
+              <div className="flex">
+                <div className="w-64">
                   <MeetingDataDisplay />
                   <DisplayAgenda />
-                  </div>
-                  <div className="column">
-                    <Room password={this.state.password} name={this.props.name}>
-                      {({ room }) => {
-                  return (
-                    <Container>
-                      <SoundPlayer roomAddress={room.address!} />
-                      {this.props.thumbnail && <Sidebar
-                        roomAddress={room.address!}
-                        activeSpeakerView={this.state.activeSpeakerView}
-                        roomId={room.id!}
-                        toggleActiveSpeakerView={() => null}
-                        pttMode={false}
-                        togglePttMode={() => null}
-                      />}
-                      <Connecting>
-                        <LoadingState>
-                          <h1>Connecting...</h1>
-                        </LoadingState>
-                      </Connecting>
-                      <Disconnected>
-                        <LoadingState>
-                          <h1>Lost connection. Reattempting to join...</h1>
-                        </LoadingState>
-                      </Disconnected>
-                      <Failed>
-                        <LoadingState>
-                          <h1>Connection failed.</h1>
-                        </LoadingState>
-                      </Failed>
-                      <Connected>
-                        {room.joined && this.props.externalVideo ? (
-                          <PeerGrid
-                            roomAddress={room.address!}
-                            activeSpeakerView={this.state.activeSpeakerView}
-                            setPassword={this.setPassword}
-                          />
-                        ) : room.passwordRequired ? (
-                          <PasswordEntryContainer>
-                            <PasswordEntry
-                              setting={false}
-                              passwordIsIncorrect={!!this.state.password}
-                              setPassword={this.setPassword}
-                            />
-                          </PasswordEntryContainer>
-                        ) : room.roomFull ? (
-                          <LoadingState>
-                            <h1>This room is full.</h1>
-                          </LoadingState>
-                        ) : room.roomNotStarted ? (
-                          <LoadingState>
-                            <h1>This room has not started yet.</h1>
-                          </LoadingState>
-                        ) : room.banned ? (
-                          <LoadingState>
-                            <h1>This room is not available.</h1>
-                          </LoadingState>
-                        ) : this.props.externalVideo ? (
-                          <LoadingState>
-                            <h1>Joining room...</h1>
-                          </LoadingState>
-                        ) : !this.props.externalVideo && (
-                          <>
-                            {Screensaver && <Screensaver />}
-                            {!Screensaver && <MirrorState />}
-                          </>
-                        )}
-                      </Connected>
-                    </Container>
-                  );
-                }}
-
-              </Room>
-                  </div>
                 </div>
-
+                <div className="w-full">
+                  <Room password={this.state.password} name={this.props.name}>
+                    {({ room }) => {
+                      return (
+                        <Container>
+                          <SoundPlayer roomAddress={room.address!} />
+                          {this.props.thumbnail && (
+                            <Sidebar
+                              roomAddress={room.address!}
+                              activeSpeakerView={this.state.activeSpeakerView}
+                              roomId={room.id!}
+                              toggleActiveSpeakerView={() => null}
+                              pttMode={false}
+                              togglePttMode={() => null}
+                            />
+                          )}
+                          <Connecting>
+                            <LoadingState>
+                              <h1>Connecting...</h1>
+                            </LoadingState>
+                          </Connecting>
+                          <Disconnected>
+                            <LoadingState>
+                              <h1>Lost connection. Reattempting to join...</h1>
+                            </LoadingState>
+                          </Disconnected>
+                          <Failed>
+                            <LoadingState>
+                              <h1>Connection failed.</h1>
+                            </LoadingState>
+                          </Failed>
+                          <Connected>
+                            {room.joined && this.props.externalVideo ? (
+                              <PeerGrid
+                                roomAddress={room.address!}
+                                activeSpeakerView={this.state.activeSpeakerView}
+                                setPassword={this.setPassword}
+                              />
+                            ) : room.passwordRequired ? (
+                              <PasswordEntryContainer>
+                                <PasswordEntry
+                                  setting={false}
+                                  passwordIsIncorrect={!!this.state.password}
+                                  setPassword={this.setPassword}
+                                />
+                              </PasswordEntryContainer>
+                            ) : room.roomFull ? (
+                              <LoadingState>
+                                <h1>This room is full.</h1>
+                              </LoadingState>
+                            ) : room.roomNotStarted ? (
+                              <LoadingState>
+                                <h1>This room has not started yet.</h1>
+                              </LoadingState>
+                            ) : room.banned ? (
+                              <LoadingState>
+                                <h1>This room is not available.</h1>
+                              </LoadingState>
+                            ) : this.props.externalVideo ? (
+                              <LoadingState>
+                                <h1>Joining room...</h1>
+                              </LoadingState>
+                            ) : (
+                              !this.props.externalVideo && (
+                                <>
+                                  {Screensaver && <Screensaver />}
+                                  {!Screensaver && <MirrorState />}
+                                </>
+                              )
+                            )}
+                          </Connected>
+                        </Container>
+                      );
+                    }}
+                  </Room>
+                </div>
               </div>
             )}
           </RootContainer>
