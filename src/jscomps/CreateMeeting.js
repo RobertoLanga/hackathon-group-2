@@ -8,7 +8,7 @@ import RoomViewComponent from '../components/RoomViewComponent';
 
 const Form = styled.div({
   height: '30rem',
-  width: '20rem',
+  width: '30rem',
   margin: '10rem auto',
   padding: '0.5rem'
 });
@@ -38,53 +38,63 @@ const CreateMeeting = props => {
     }
   };
 
+
+  
+
+
   return (
     <Form>
       {showForm && (
-        <div className="flex flex-col">
-          <label>Room Name</label>
-          <input
-            className="border border-black-4"
-            type="text"
-            name="roomName"
-            onChange={e => changeState('roomName', e.target.value)}
-          ></input>
+        <div className="flex">
+          <div className="flex flex-col border border-black-4 p-2 rounded">
+            <input
+              placeholder ="Room Title"
+              className="border border-black-4 p-2 rounded"
+              type="text"
+              name="roomName"
+              onChange={e => changeState('roomName', e.target.value)}
+            ></input>
+            <br />
+            
+            <input
+            placeholder ="Meeting Title"
+            className="border border-black-4 p-2 rounded"
+              type="text"
+              name="meetingTitle"
+              onChange={e => changeState('meetingTitle', e.target.value)}
+            ></input>
+            <br />
+            <div className="flex flex-col">
+              <button
+              className="bg-blue-600 p-2 rounded text-white hover:bg-blue-800"
+              onClick={() => setAgenda(!agenda)}
+              >
+              {' '}
+              Add Topic
+              </button>
+              {agenda && (
+                <>
+                  <AgendaItem handleAddAgenda={handleAddAgenda} />
+                </>
+              )}
+            </div>
+          </div>
 
-          <label>Meeting Title</label>
-          <input
-            type="text"
-            name="meetingTitle"
-            onChange={e => changeState('meetingTitle', e.target.value)}
-          ></input>
-          <br />
-          <button
-            style={{ width: '50%' }}
-            className="ui primary button"
-            onClick={() => setAgenda(!agenda)}
-          >
-            {' '}
-            + Agenda
-          </button>
-          {agenda && (
-            <>
-              <AgendaItem handleAddAgenda={handleAddAgenda} />
-            </>
-          )}
-          <br />
+
+          <div className="flex flex-col border border-black-4 p-2 rounded">
           <div>Agenda List</div>
-          {state.meetingAgenda && (
-            <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
-          )}
-          <br />
-          <br />
+            {state.meetingAgenda && (
+              <ShowList list={state.meetingAgenda} handleClickIcon={handleDeleteAgenda} />
+            )}
           <button
             style={{ width: '50%' }}
-            className="ui primary button"
+            className="p-2 rounded text-white w-16 bg-green-600 hover:bg-green-800 self-center"
             onClick={props.handleCreateMeeting}
-          >
+            >
             Create Meeting
-          </button>
-          <br />
+            </button>
+          </div>
+
         </div>
       )}
     </Form>
@@ -92,3 +102,6 @@ const CreateMeeting = props => {
 };
 
 export default CreateMeeting;
+
+
+
