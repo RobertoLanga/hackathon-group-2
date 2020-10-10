@@ -9,24 +9,25 @@ const CountDownClock = props => {
     <div className="">
       {showTag && (
         <>
-          <div>{`${props.agenda.item} ( ${props.agenda.time} mins )`}</div>
-          <button
-            className="bg-blue-600 p-2 rounded text-white hover:bg-blue-800"
-            onClick={() => setDisplay(true)}
-          >
-            {' '}
-            Start{' '}
-          </button>
-          {display && (
-            <ReactCountdownClock
-              seconds={props.agenda.time * 60}
-              color="#000"
-              alpha={0.9}
-              showMilliseconds={false}
-              size={50}
-              onComplete={() => setShowTag(false)}
-            />
-          )}
+          <div className="font-sans text-lg text-gray-800 py-2">{`${props.agenda.item} ( ${props.agenda.time} mins )`}</div>
+          <div className="flex flex-row justify-between items-center">
+            <button
+              className="bg-blue-600 p-2 rounded text-white hover:bg-blue-800"
+              onClick={() => setDisplay(true)}
+            >
+              Start
+            </button>
+            {display && (
+              <ReactCountdownClock
+                seconds={props.agenda.time * 60}
+                color="#cbd5e0"
+                alpha={0.9}
+                showMilliseconds={false}
+                size={30}
+                onComplete={() => setShowTag(false)}
+              />
+            )}
+          </div>
         </>
       )}
     </div>

@@ -11,10 +11,10 @@ const MeetingDataDisplay = () => {
   console.log(totalTime);
 
   return (
-    <div className="">
-      <h1 className="font-sans text-lg text-gray-800">{`Room Name: ${state.roomName}`}</h1>
-      <h1 className="font-sans text-lg text-gray-800">{`Meeting Title: ${state.meetingTitle}`}</h1>
-      <h1 className="font-sans text-lg text-gray-800">{`Total Time (mins): ${totalTime}`}</h1>
+    <div className="my-6 mx-4">
+      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Room Name: ${state.roomName}`}</h1>
+      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Meeting Title: ${state.meetingTitle}`}</h1>
+      <h1 className="font-sans font-bold text-lg text-gray-800 my-2">{`Meeting Time: ${totalTime}`}</h1>
     </div>
   );
 };
