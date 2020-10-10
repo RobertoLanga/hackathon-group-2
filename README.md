@@ -1,3 +1,16 @@
+Project Name: Thunder Punch Meeting App
+
+Teams: 
+(1) Adam 
+(2) Roberto
+(3) Sawi
+
+Goal: Create the conference call app that can help with setting meeting agenda and time in order to improve the meeting effeciency
+
+This project is a part of the remote frontend class at Wild Code School.
+
+
+
 # "Magic Mirror" Boilerplate
 
 ## Setup
