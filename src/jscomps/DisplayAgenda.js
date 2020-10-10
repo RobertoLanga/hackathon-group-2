@@ -6,7 +6,7 @@ const DisplayAgenda = () => {
   const { state, changeState } = React.useContext(Context);
 
   return (
-    <div className="border border-red">
+    <div className="">
       {state.meetingAgenda &&
         state.meetingAgenda.map((agenda, index) => <CountdownClock key={index} agenda={agenda} />)}
     </div>

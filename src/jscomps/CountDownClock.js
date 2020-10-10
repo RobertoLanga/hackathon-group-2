@@ -6,11 +6,14 @@ const CountDownClock = props => {
   const [display, setDisplay] = useState(false);
 
   return (
-    <div className="border border-black">
+    <div className="">
       {showTag && (
         <>
           <div>{`${props.agenda.item} ( ${props.agenda.time} mins )`}</div>
-          <button className="ui primary button" onClick={() => setDisplay(true)}>
+          <button
+            className="bg-blue-600 p-2 rounded text-white hover:bg-blue-800"
+            onClick={() => setDisplay(true)}
+          >
             {' '}
             Start{' '}
           </button>
@@ -19,7 +22,8 @@ const CountDownClock = props => {
               seconds={props.agenda.time * 60}
               color="#000"
               alpha={0.9}
-              size={200}
+              showMilliseconds={false}
+              size={50}
               onComplete={() => setShowTag(false)}
             />
           )}
